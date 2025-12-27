@@ -1,0 +1,173 @@
+/* 1. General Page Styling */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f4; /* Very light grey-green */
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #0a4731; /* Masters Green */
+    border-bottom: 3px solid #f7cc1e; /* Masters Yellow */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* 2. Form Controls (Inputs & Selects) */
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0a4731;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #146b4a;
+}
+
+#place-bet {
+    background-color: #f7cc1e; /* Yellow for betting actions */
+    color: #0a4731;
+}
+
+/* 3. The Matrix Table Styling */
+table {
+    width: 90%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Keeps corners rounded */
+}
+
+/* Header Row (Golfers) */
+th {
+    background-color: #0a4731;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* First Column (Betters) */
+tr th:first-child {
+    background-color: #0a4731;
+    color: #f7cc1e; /* Names stand out in Yellow */
+    text-align: left;
+    width: 150px;
+    position: sticky;
+    left: 0;
+}
+
+/* Standard Payout Cells */
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-family: 'Courier New', Courier, monospace; /* Looks like a betting slip */
+    font-weight: bold;
+}
+
+/* Zebra Striping */
+tr:nth-child(even) {
+    background-color: #f9fafd98;
+}
+
+tr:hover {
+    background-color: #d41717; /* Highlight row on hover */
+}
+
+/* 4. Layout Containers */
+.controls-container {
+    display: flex;         /* Activates horizontal layout */
+    flex-direction: row;   /* Ensures items stay in a row */
+    align-items: center;   /* Perfectly aligns buttons and selects vertically */
+    justify-content: center; /* Centers the whole row on the screen */
+    gap: 15px;             /* Modern way to add spacing between items */
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    width: fit-content;    /* Shrinks container to fit its horizontal contents */
+}
+
+/* Optional: Make inputs and selects uniform height for a cleaner look */
+.controls-container input, 
+.controls-container select, 
+.controls-container button {
+    height: 42px;
+    margin: 0;             /* Remove old margins to rely solely on 'gap' */
+    box-sizing: border-box;
+}
+
+
+
+tfoot th, tfoot td {
+    background-color: #0a4731; /* Masters Green */
+    color: white;
+    font-weight: bold;
+    border-top: 3px solid #f7cc1e; /* Gold line above totals */
+}
+
+.better-total-column {
+    background-color: #f0f0f0; /* Light grey to separate from payouts */
+    border-left: 2px solid #0a4731; /* Green line separates it from golfers */
+    font-weight: bold;
+}
+
+.entered {
+    background-color: #e1dada !important; 
+    color: #000000 !important;
+    
+}
+
+/* Ensure the higher highlights still stand out */
+.high-payout {
+    background-color: rgba(20, 107, 74, 0.2) !important; 
+    font-weight: bold;
+}
+
+.winner-cell {
+    background-color: #f7cc1e !important;
+    color: #0a4731 !important;
+}
+
+h5{
+
+    font-size: 20px;
+
+}
+
+/* Keeps the Golfers and the Better Names visible while scrolling */
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+tr th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+}
+
+
