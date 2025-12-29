@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masters Horserace</title>
+    <!-- Link to an external CSS file, if you have one -->
+    <link rel="stylesheet" href="horserace.css">
+</head>
+
+<body>
+
+    <!-- All visible content of the webpage goes here -->
+    <header>
+        <img src="golf.jpeg" alt="hole-in-one">
+        <h1>Horserace 2026</h1>
+        <img src="golf.jpeg" alt="hole-in-one">
+    </header>
+    <div class="controls-container">
+        <label for="betters">Enter Name to Enter HorseRace: </label><input id="betters">
+        <button id="btn">Enter Better</button>
+    </div>
+    
+    <div class="table-container">
+    <table id="table-betters"></table>
+    </div>
+
+    <div class="controls-container">
+        <label for="better-select">Choose a Better: </label>
+        <select id="better-select">
+            <option value="">-- Select a Name --</option>
+        </select>
+        <label for="bet-amount">Bet Amount: </label>
+        <input type="number" id="bet-amount" placeholder="0" min="1">
+        <label for="golfer-select">Select Golfer: </label>
+        <select id="golfer-select">
+            <option value="">-- Pick a Golfer --</option>
+            <option value="Scottie Scheffler">Scottie Scheffler</option>
+            <option value="Rory McIlroy">Rory McIlroy</option>
+            <option value="Jon Rahm">Jon Rahm</option>
+            <option value="Tiger Woods">Tiger Woods</option>
+        </select>
+
+        <button id="place-bet">Place Bet</button>
+        <button id="refresh" onclick="loadMatrixTableFromSheet()">Refresh Payouts</button>
+    </div>
+    <h5 id="totSpent">Total Pool: $0</h5>
+    <!-- Link to an external JavaScript file, if needed -->
+    <script src="horserace.js"></script>
+</body>
+
+</html>
