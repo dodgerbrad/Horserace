@@ -1,7 +1,7 @@
 /* 1. General Page Styling */
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f4f7f4; /* Very light grey-green */
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #f4f7f4;
     color: #333;
     padding: 20px;
     display: flex;
@@ -9,55 +9,99 @@ body {
     align-items: center;
 }
 
+/* 2. Responsive Header Styling */
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+header img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #0a4731;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin-bottom: 0;
+    padding-bottom: 5px;
+    white-space: nowrap;
+}
+
 h1 {
-    color: #0a4731; /* Masters Green */
-    border-bottom: 3px solid #f7cc1e; /* Masters Yellow */
+    color: #0a4731;
+    border-bottom: 3px solid #f7cc1e;
     padding-bottom: 10px;
     margin-bottom: 30px;
 }
 
-/* 2. Form Controls (Inputs & Selects) */
-input, select {
-    padding: 10px;
-    border: 1px solid #ccc;
+.controls-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows items to jump to next line if they don't fit */
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    width: 95%; /* Fits better on wide screens */
+    max-width: 1440px; /* Matches your larger table width */
+}
+
+
+input, select, button {
+    height: 42px;
+    padding: 0 12px;
+    font-size: 15px;
     border-radius: 4px;
-    margin: 5px;
-    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 button {
-    padding: 10px 20px;
     background-color: #0a4731;
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    padding: 10px 20px;
 }
 
-button:hover {
-    background-color: #146b4a;
-}
+button:hover { background-color: #146b4a; }
+#place-bet { background-color: #f7cc1e; color: #0a4731; }
 
-#place-bet {
-    background-color: #f7cc1e; /* Yellow for betting actions */
-    color: #0a4731;
-}
-
-/* 3. The Matrix Table Styling */
-table {
-    width: 90%;
-    max-width: 1200px;
-    border-collapse: collapse;
+/* 4. The Matrix Table Styling (Updated for Responsiveness) */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto; /* Enables horizontal swipe on mobile */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
     margin-top: 30px;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-radius: 8px;
-    overflow: hidden; /* Keeps corners rounded */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Header Row (Golfers) */
+table {
+    width: 100%;
+    min-width: 800px; /* Prevents text squishing; adjust as needed */
+    border-collapse: collapse;
+    background-color: white;
+    table-layout: auto;
+}
+
 th {
     background-color: #0a4731;
     color: white;
@@ -65,109 +109,75 @@ th {
     text-align: center;
     font-size: 14px;
     text-transform: uppercase;
-}
-
-/* First Column (Betters) */
-tr th:first-child {
-    background-color: #0a4731;
-    color: #f7cc1e; /* Names stand out in Yellow */
-    text-align: left;
-    width: 150px;
-    position: sticky;
-    left: 0;
-}
-
-/* Standard Payout Cells */
-td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-    font-family: 'Courier New', Courier, monospace; /* Looks like a betting slip */
-    font-weight: bold;
-}
-
-/* Zebra Striping */
-tr:nth-child(even) {
-    background-color: #f9fafd98;
-}
-
-tr:hover {
-    background-color: #d41717; /* Highlight row on hover */
-}
-
-/* 4. Layout Containers */
-.controls-container {
-    display: flex;         /* Activates horizontal layout */
-    flex-direction: row;   /* Ensures items stay in a row */
-    align-items: center;   /* Perfectly aligns buttons and selects vertically */
-    justify-content: center; /* Centers the whole row on the screen */
-    gap: 15px;             /* Modern way to add spacing between items */
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-    width: fit-content;    /* Shrinks container to fit its horizontal contents */
-}
-
-/* Optional: Make inputs and selects uniform height for a cleaner look */
-.controls-container input, 
-.controls-container select, 
-.controls-container button {
-    height: 42px;
-    margin: 0;             /* Remove old margins to rely solely on 'gap' */
-    box-sizing: border-box;
-}
-
-
-
-tfoot th, tfoot td {
-    background-color: #0a4731; /* Masters Green */
-    color: white;
-    font-weight: bold;
-    border-top: 3px solid #f7cc1e; /* Gold line above totals */
-}
-
-.better-total-column {
-    background-color: #f0f0f0; /* Light grey to separate from payouts */
-    border-left: 2px solid #0a4731; /* Green line separates it from golfers */
-    font-weight: bold;
-}
-
-.entered {
-    background-color: #e1dada !important; 
-    color: #000000 !important;
-    
-}
-
-/* Ensure the higher highlights still stand out */
-.high-payout {
-    background-color: rgba(20, 107, 74, 0.2) !important; 
-    font-weight: bold;
-}
-
-.winner-cell {
-    background-color: #f7cc1e !important;
-    color: #0a4731 !important;
-}
-
-h5{
-
-    font-size: 20px;
-
-}
-
-/* Keeps the Golfers and the Better Names visible while scrolling */
-thead th {
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
-tr th:first-child {
+/* Sticky First Column Fixes */
+tr th:first-child, 
+tr td:first-child {
     position: sticky;
     left: 0;
-    z-index: 5;
+    z-index: 11;
+    width: 150px;
 }
 
+tr th:first-child {
+    background-color: #0a4731;
+    color: #f7cc1e;
+    text-align: left;
+}
 
+/* Prevent cell content from showing through sticky column when scrolling */
+tr td:first-child {
+    background-color: inherit; 
+    border-right: 2px solid #0a4731;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* 5. Row Effects & Specialty Cells */
+tr:nth-child(even) { background-color: #f9fafd; }
+tr:hover { background-color: #0a4731; color: white; }
+
+tfoot th, tfoot td {
+    background-color: #0a4731;
+    color: white;
+    font-weight: bold;
+    border-top: 3px solid #f7cc1e;
+}
+
+.better-total-column {
+    background-color: #f0f0f0;
+    border-left: 2px solid #0a4731;
+}
+
+.entered { background-color: #e1dada !important; color: #000; }
+.high-payout { background-color: rgb(219, 219, 109) !important; }
+.winner-cell { background-color: #f7cc1e !important; color: #0a4731 !important; }
+
+/* Mobile specific fixes for the container */
+@media (max-width: 768px) {
+    .controls-container {
+        flex-direction: column; /* Stack everything vertically on mobile */
+        align-items: stretch; /* Make inputs full-width */
+        padding: 15px;
+    }
+
+    .input-group {
+        flex-direction: column; /* Stack Label on top of Input */
+        align-items: flex-start;
+    }
+
+    input, select, button {
+        width: 100%; /* Full width for easier tapping */
+        margin: 5px 0;
+    }
+}
